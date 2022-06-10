@@ -17,4 +17,5 @@ class Employee(models.Model):
         jobDescription= models.TextField()
         employementDate = models.CharField(max_length=50, default=d1)
         branch = models.CharField(max_length=50)
-        
+
+# sqlite3 db.sqlite3' "select * from Employee;" ".exit"
