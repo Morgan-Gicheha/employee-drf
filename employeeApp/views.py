@@ -21,7 +21,7 @@ def allEmployees(request):
     return JsonResponse({'response': serializer.data})
 
 
-@api_view(['PUT','DELETE'])
+@api_view(['GET','PUT','DELETE'])
 def employeeModification(request,employeeNumber):
    
     try:
@@ -43,6 +43,8 @@ def employeeModification(request,employeeNumber):
         employee.delete()
         return Response(status=status.HTTP_200_OK)
 
+    elif request.method == 'GET':
+         return JsonResponse(EmployeeSerializerGet(employee, many=True).data, safe=False)
 
 
         
